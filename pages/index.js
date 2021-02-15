@@ -17,7 +17,7 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
 
   console.log('weekData=', weekData)
   useEffect(() => {
-    const mm = d.getMonth()
+    var mm = d.getMonth()
     if (mm < 10) {
       mm = '0' + mm;
     }
