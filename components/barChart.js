@@ -1,18 +1,18 @@
-import React,{useRef,useEffect} from 'react';
+import React, { useRef, useEffect } from 'react';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
 import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 
 am4core.useTheme(am4themes_animated);
 
-export default function BarChart({data}) {
-    const barDom=useRef(null);
+export default function BarChart({ data }) {
+    const barDom = useRef(null);
     useEffect(() => {
         let chart = am4core.create("barchartdiv", am4charts.XYChart);
         // chart.scrollbarX = new am4core.Scrollbar();
 
         // Add data
-        chart.data =data;
+        chart.data = data;
 
         // Create axes
         let categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
@@ -48,20 +48,20 @@ export default function BarChart({data}) {
         hoverState.properties.cornerRadiusTopRight = 0;
         hoverState.properties.fillOpacity = 1;
 
-        series.columns.template.adapter.add("fill", function(fill, target) {
-        return chart.colors.getIndex(target.dataItem.index);
+        series.columns.template.adapter.add("fill", function (fill, target) {
+            return chart.colors.getIndex(target.dataItem.index);
         });
 
         // Cursor
         chart.cursor = new am4charts.XYCursor();
-        barDom.current=chart;
+        barDom.current = chart;
         return () => {
             chart.dispose();
         }
     }, [data])
     return (
         <div>
-            <div id="barchartdiv" style={{ width: "100%", height:"400px",marginTop:"20px",marginBottom:"20px" }}></div>
+            <div id="barchartdiv" style={{ width: "100%", height: "400px", marginTop: "20px", marginBottom: "20px" }}></div>
         </div>
     )
 }

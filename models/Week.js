@@ -1,29 +1,29 @@
 import mongoose from 'mongoose'
 
-const d= new Date(Date.now() - ((new Date().getDay()) * 24 * 60 * 60 * 1000));
-const nowd=new Date()
+const d = new Date(Date.now() - ((new Date().getDay()) * 24 * 60 * 60 * 1000));
+const nowd = new Date()
 
-const weekSchema=new mongoose.Schema({
-    _id:{
-        type:String,
-        required:true
+const weekSchema = new mongoose.Schema({
+    _id: {
+        type: String,
+        required: true
     },
-    weeks:[
+    weeks: [
         {
-            _id:{
-                type:String,
-                default:`${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`,
-                required:false
+            _id: {
+                type: String,
+                default: `${d.getDate()}/${d.getMonth()}/${d.getFullYear()}`,
+                required: false
             },
-            days:[
+            days: [
                 {
-                    _id:{type:Number,default:nowd.getDay(),required:false},
-                    total:{type:Number,required:true}
+                    _id: { type: Number, default: nowd.getDay(), required: false },
+                    total: { type: Number, required: true }
                 }
             ]
-           
+
         }
     ]
 })
 
-export default mongoose.models.week || mongoose.model('week',weekSchema)
+export default mongoose.models.week || mongoose.model('week', weekSchema)

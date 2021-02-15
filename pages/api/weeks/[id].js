@@ -4,12 +4,12 @@ import Week from '../../../models/Week';
 
 initDB();
 
-export default async(req,res)=>{
-    const {id}=req.query;
-    let userData=await Week.findOne({_id:id})
+export default async (req, res) => {
+    const { id } = req.query;
+    let userData = await Week.findOne({ _id: id })
     if (userData) {
         res.json(userData.weeks)
-    }else{
+    } else {
         res.json([])
     }
 }

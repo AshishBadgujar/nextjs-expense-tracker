@@ -8,8 +8,8 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           {/* PWA primary color */}
-          <link rel="preconnect" href="https://fonts.gstatic.com"/>
-          <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Exo:wght@300&display=swap" rel="stylesheet"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Exo:wght@300&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />
@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
 // `getInitialProps` belongs to `_document` (instead of `_app`),
 // it's compatible with server-side generation (SSG).
 MyDocument.getInitialProps = async (ctx) => {
- 
+
   const sheets = new ServerStyleSheets();
   const originalRenderPage = ctx.renderPage;
 
