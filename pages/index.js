@@ -71,7 +71,8 @@ export async function getServerSideProps(ctx) {
   const dayData = []
   const monthData = []
   const weekData = []
-  if (session?.user) {
+  if (session) {
+    let user = session.user;
     try {
       let res = await Axios.get(`${baseUrl}/api/${user.sub}`)
       let res2 = res.data
