@@ -96,9 +96,11 @@ export default function Navbar({user}) {
           }
         </Toolbar>
       </AppBar>
+       {(!user) &&
       <Typography variant="h5" align="center" className={classes.warnFont}>
         Please login to access the expense tracker , <Link href="/api/login">login</Link>
       </Typography>
+       }
       <SwipeableDrawer
       anchor='left'
       open={openMobile}
