@@ -137,7 +137,7 @@ export default function Today({ user, data }) {
 
 export async function getServerSideProps(ctx) {
     const session = await auth0.getSession(ctx.req)
-    const dayData = []
+    var dayData = [];
     if (session) {
         try {
             let user = session.user;

@@ -136,7 +136,7 @@ export default function Analysis({ user, data }) {
 
 export async function getServerSideProps(ctx) {
   const session = await auth0.getSession(ctx.req)
-  const res2 = []
+  var res2 = [];
   if (session) {
     try {
       let user = session.user;

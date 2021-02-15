@@ -66,10 +66,10 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
 
 export async function getServerSideProps(ctx) {
   const session = await auth0.getSession(ctx.req)
-  const forMonth = []
-  const dayData = []
-  const monthData = []
-  const weekData = []
+  var forMonth = [];
+  var dayData = [];
+  var monthData = [];
+  var weekData = [];
   if (session) {
     try {
       let user = session.user;

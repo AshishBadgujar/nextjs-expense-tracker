@@ -29,7 +29,7 @@ export default function Week({ user, data }) {
 
 export async function getServerSideProps(ctx) {
     const session = await auth0.getSession(ctx.req)
-    const weekData = []
+    var weekData = [];
     if (session) {
         try {
             let user = session.user;

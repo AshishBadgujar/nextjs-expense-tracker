@@ -3,7 +3,7 @@ import initDB from '../../utils/db'
 import auth0 from '../../utils/auth0';
 import Week from '../../models/Week';
 
-initDB()
+initDB();
 
 export default async (req, res) => {
     switch (req.method) {

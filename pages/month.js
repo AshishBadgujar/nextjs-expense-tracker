@@ -29,7 +29,7 @@ export default function Month({ user, data }) {
 
 export async function getServerSideProps(ctx) {
     const session = await auth0.getSession(ctx.req)
-    const monthDays = []
+    var monthDays = [];
     if (session) {
         try {
             let user = session.user;
