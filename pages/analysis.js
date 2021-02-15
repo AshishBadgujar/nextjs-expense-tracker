@@ -46,10 +46,6 @@ export default function Analysis({ user, data }) {
   const router = useRouter()
 
   useEffect(() => {
-    convertArray(data)
-  }, [data])
-
-  const convertArray = (data) => {
     let arr = data.map(item => {
       return {
         date: item._id,
@@ -57,12 +53,12 @@ export default function Analysis({ user, data }) {
       }
     })
     setLineArray(arr)
-  }
+  }, [])
 
   const handleDelete = async () => {
     setOpen(false)
-    const res = await Axios.delete(`${baseUrl}/api/ashish`)
-    const res2 = res.data
+    let res = await Axios.delete(`${baseUrl}/api/${user.sub}`)
+    let res2 = res.data
     console.log(res2, "this is delete response")
     router.push('/')
   }
@@ -127,7 +123,6 @@ export default function Analysis({ user, data }) {
           </Box>
           <Divider />
           <Button color="secondary" onClick={() => setOpen(true)}>Clear all data</Button>
-          <Divider />
         </Box>
       </Container>
     </>
@@ -153,8 +148,8 @@ export async function getServerSideProps(ctx) {
 
   return {
     props: {
-      data: res2,
       user: session?.user || null,
+      data: res2,
     }
   }
 }

@@ -12,11 +12,17 @@ import { Grid } from "@material-ui/core";
 export default function Home({ user, dayData, monthData, weekData, forMonth }) {
   const [thisMonth, setThisMonth] = useState({ _id: 0, total: 0 })
   const [weekArray, setWeekArray] = useState([])
-  const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const d = new Date();
+
+  console.log('weekData=', weekData)
   useEffect(() => {
+    const mm = d.getMonth()
+    if (mm < 10) {
+      mm = '0' + mm;
+    }
     monthData.forEach(item => {
-      if (item._id == d.getMonth()) {
+      if (item._id == mm) {
         setThisMonth(item)
       }
     })
@@ -26,6 +32,8 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
     })
     setWeekArray(temp);
   }, [])
+
+  console.log('weekArray=', weekArray);
 
   return (
     <>
@@ -78,9 +86,15 @@ export async function getServerSideProps(ctx) {
       dayData = DateSort(res2);
       forMonth = MonthCategorySort(res2);
       monthData = MonthDaysSort(res2);
-      let res3 = await Axios.get(`${baseUrl}/api/weeks/${user.sub}`)
-      let res4 = res3.data
-      weekData = DaySort(res4)
+    } catch (error) {
+      console.log(error)
+    }
+
+    try {
+      let user = session.user;
+      let res = await Axios.get(`${baseUrl}/api/weeks/${user.sub}`)
+      let res2 = res.data
+      weekData = DaySort(res2)
     } catch (error) {
       console.log(error)
     }

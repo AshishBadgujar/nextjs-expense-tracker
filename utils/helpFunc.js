@@ -79,9 +79,13 @@ export function CategorySort(array) {
 
 export function MonthCategorySort(array) {
     let d = new Date();
+    let mm = d.getMonth()
+    if (mm < 10) {
+        mm = '0' + mm;
+    }
     let daysData = [];
     array.forEach(item => {
-        if (item.month == d.getMonth()) {
+        if (item.month == mm) {
             daysData = daysData.concat(item.data)
         }
     })
