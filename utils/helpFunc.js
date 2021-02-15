@@ -89,7 +89,7 @@ export function MonthCategorySort(array) {
             daysData = daysData.concat(item.data)
         }
     })
-    let newArray = categorySort(daysData);
+    let newArray = CategorySort(daysData);
     return newArray;
 }
 
@@ -98,6 +98,6 @@ export function AllDaysCategorySort(array) {
     array.forEach(item => {
         daysDataArray = daysDataArray.concat(item.data)
     });
-    let newArray = categorySort(daysDataArray);
+    let newArray = CategorySort(daysDataArray);
     return newArray;
 }

@@ -15,14 +15,14 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
   const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const d = new Date();
 
-  console.log('weekData=', weekData)
+  console.log('monthData=', monthData)
   useEffect(() => {
-    var mm = d.getMonth()
-    if (mm < 10) {
-      mm = '0' + mm;
-    }
+    // var mm = d.getMonth()
+    // if (mm < 10) {
+    //   mm = '0' + mm;
+    // }
     monthData.forEach(item => {
-      if (item._id == mm) {
+      if (item._id == d.getMonth()) {
         setThisMonth(item)
       }
     })
@@ -33,7 +33,7 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
     setWeekArray(temp);
   }, [])
 
-  console.log('weekArray=', weekArray);
+  console.log('thisMonth=', thisMonth);
 
   return (
     <>
