@@ -30,7 +30,8 @@ export default function Month({ user, data }) {
 export async function getServerSideProps(ctx) {
     const session = await auth0.getSession(ctx.req)
     const monthDays = []
-    if (session?.user) {
+    if (session) {
+        let user = session.user;
         try {
             let res = await Axios.get(`${baseUrl}/api/${user.sub}`)
             let res2 = res.data
