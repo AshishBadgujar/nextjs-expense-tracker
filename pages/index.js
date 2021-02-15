@@ -10,7 +10,6 @@ import { motion } from 'framer-motion';
 import { Grid } from "@material-ui/core";
 
 export default function Home({ user, dayData, monthData, weekData, forMonth }) {
-  console.log(user, "this is user")
   const [thisMonth, setThisMonth] = useState({ _id: 0, total: 0 })
   const [weekArray, setWeekArray] = useState([])
   const daysArray = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
