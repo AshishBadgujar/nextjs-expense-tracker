@@ -59,7 +59,7 @@ export default function Analysis({ user, data }) {
     setOpen(false)
     let res = await Axios.delete(`${baseUrl}/api/${user.sub}`)
     let res2 = res.data
-    console.log(res2, "this is delete response")
+    console.log(res2)
     router.push('/')
   }
 
