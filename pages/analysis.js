@@ -138,8 +138,8 @@ export async function getServerSideProps(ctx) {
   const session = await auth0.getSession(ctx.req)
   const res2 = []
   if (session) {
-    let user = session.user;
     try {
+      let user = session.user;
       let res = await Axios.get(`${baseUrl}/api/${user.sub}`)
       res2 = res.data
     } catch (error) {
