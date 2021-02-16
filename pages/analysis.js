@@ -8,8 +8,7 @@ import Navbar from '../components/Navbar';
 import { AllDaysCategorySort } from '../utils/helpFunc';
 import { useRouter } from 'next/router';
 import { makeStyles } from '@material-ui/core/styles';
-import { Box, Modal, Backdrop, Fade, Button, Divider, Typography, Container, Grid } from '@material-ui/core'
-import { motion } from 'framer-motion'
+import { Box, Modal, Backdrop, Fade, Button, Divider, Typography, Container, Grid, Snackbar } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -43,6 +42,8 @@ const useStyles = makeStyles((theme) => ({
 export default function Analysis({ user, data }) {
   const [lineArray, setLineArray] = useState([])
   const [open, setOpen] = useState(false)
+  const [toast, setToast] = useState(false)
+  const [toastText, setToastText] = useState('')
   const router = useRouter()
 
   useEffect(() => {
@@ -59,7 +60,10 @@ export default function Analysis({ user, data }) {
     setOpen(false)
     let res = await Axios.delete(`${baseUrl}/api/${user.sub}`)
     let res2 = res.data
-    console.log(res2)
+    if (res2.message) {
+      setToastText(res2.message)
+    }
+    setToast(true)
     router.push('/')
   }
 
@@ -67,6 +71,15 @@ export default function Analysis({ user, data }) {
   return (
     <>
       <Navbar user={user} />
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        open={toast}
+        autoHideDuration={4000}
+        message={toastText}
+      />
       <Container maxWidth="md">
         <Box className={classes.flex}>
           <Modal
@@ -94,25 +107,13 @@ export default function Analysis({ user, data }) {
             alignItems="stretch"
             spacing={0}>
             <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ opacity: 0, x: -300 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-              >
-                <img src="/analysis.jpg" style={{ width: "100%", height: "100%" }} />
-              </motion.div>
+              <img src="/analysis.jpg" style={{ width: "100%", height: "100%" }} />
             </Grid>
             <Grid item xs={12} md={6}>
-              <motion.div
-                initial={{ opacity: 0, x: 300 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1 }}
-              >
-                <Typography variant='h4' align="center">
-                  Category wise
+              <Typography variant='h4' align="center">
+                Category wise
                 </Typography>
-                <BarChart data={AllDaysCategorySort(data)} />
-              </motion.div>
+              <BarChart data={AllDaysCategorySort(data)} />
             </Grid>
           </Grid>
           <Box className={classes.margin}>

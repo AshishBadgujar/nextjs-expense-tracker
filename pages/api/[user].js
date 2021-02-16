@@ -172,5 +172,5 @@ const deleteData = async (req, res) => {
     } catch (err) {
         console.log(err)
     }
-    res.json({ message: "Deleted Successfully " })
+    res.json({ message: "Deleted Successfully !" })
 }

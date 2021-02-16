@@ -21,9 +21,6 @@ export default function Layout({ children }) {
     }
 
     const theme = createMuiTheme({
-        typography: {
-            "fontFamily": "Caveat",
-        },
         palette: {
             type: darkMode ? "dark" : "light",
             primary: {

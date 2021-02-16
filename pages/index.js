@@ -6,7 +6,6 @@ import Navbar from '../components/Navbar';
 import { DateSort, MonthDaysSort, DaySort, CategorySort, MonthCategorySort } from '../utils/helpFunc';
 import AnguChart from "../components/anguChart";
 import baseUrl from '../utils/baseUrl'
-import { motion } from 'framer-motion';
 import { Grid } from "@material-ui/core";
 
 export default function Home({ user, dayData, monthData, weekData, forMonth }) {
@@ -37,22 +36,10 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
         alignItems="center"
         spacing={0}>
         <Grid item xs={12} sm={6}>
-          <motion.div
-            initial={{ opacity: 0, x: -300 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <AnguChart total={dayData.reduce((a, b) => a + b.amount, 0)} catData={CategorySort(dayData)} />
-          </motion.div>
+          <AnguChart total={dayData.reduce((a, b) => a + b.amount, 0)} catData={CategorySort(dayData)} />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <motion.div
-            initial={{ opacity: 0, x: 300 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <MainCard heading='Today' total={dayData.reduce((a, b) => a + b.amount, 0)} catData={CategorySort(dayData)} />
-          </motion.div>
+          <MainCard heading='Today' total={dayData.reduce((a, b) => a + b.amount, 0)} catData={CategorySort(dayData)} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <MainCard heading='This Week' total={weekData.reduce((a, b) => a + b.total, 0)} catData={weekArray} />

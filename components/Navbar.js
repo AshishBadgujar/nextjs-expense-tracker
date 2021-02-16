@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
   warnFont: {
     fontFamily: "Exo",
   },
+  font: {
+    fontFamily: 'Caveat'
+  },
   navIconHide: {
     marginRight: theme.spacing(2),
   },
@@ -40,7 +43,7 @@ export default function Navbar({ user }) {
     <List>
       <ListItem>
         <Link href='/'>
-          <Typography variant="h6">
+          <Typography variant="h6" className={classes.font}>
             <Link href="/">Expense tracker</Link>
           </Typography>
         </Link>
@@ -85,7 +88,7 @@ export default function Navbar({ user }) {
             <MenuIcon />
           </IconButton>
           <Box className={classes.title}>
-            <Typography variant="h5">
+            <Typography variant="h5" className={classes.font}>
               <Link href="/">₹ Expense tracker</Link>
             </Typography>
           </Box>
