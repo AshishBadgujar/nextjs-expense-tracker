@@ -17,7 +17,7 @@ export default function Week({ user, data }) {
                 <TopCard total={data.reduce((a, b) => a + b.total, 0)} />
                 <Grid container spacing={3}>
                     {data.map(item => (
-                        <Grid item xs={12} sm={6} md={4} key={item._id}>
+                        <Grid item xs={12} sm={6} key={item._id}>
                             <SimpleCard text={daysArray[item._id]} amount={item.total} />
                         </Grid>
                     ))}
