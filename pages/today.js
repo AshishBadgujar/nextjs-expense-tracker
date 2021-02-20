@@ -63,9 +63,9 @@ export default function Today({ user, data }) {
             const res = await Axios.put(`${baseUrl}/api/${user.sub}`, { text, category, amount })
             const res2 = res.data
             let newData = DateSort(res2)
+            setExpense(newData)
             setText('')
             setAmount(null)
-            setExpense(newData)
             setCategory('')
         } catch (error) {
             console.log(error)
@@ -92,6 +92,7 @@ export default function Today({ user, data }) {
                                 <InputLabel htmlFor="standard-adornment-amount">Why</InputLabel>
                                 <Input
                                     value={text}
+                                    required={true}
                                     onChange={(e) => setText(e.target.value)}
                                 />
                             </FormControl>
@@ -116,6 +117,7 @@ export default function Today({ user, data }) {
                                     id="component-helper-text"
                                     type="number"
                                     value={amount}
+                                    required={true}
                                     onChange={(e) => setAmount(e.target.value)}
                                     startAdornment={<InputAdornment position="start">₹</InputAdornment>}
                                 />
