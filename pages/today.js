@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
         display: "flex",
         justifyContent: "space-around",
         flexDirection: "column",
-        width: "60%"
+        maxWidth: "700px",
     },
     margin: {
         marginTop: 20,
