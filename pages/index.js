@@ -52,7 +52,7 @@ export default function Home({ user, dayData, monthData, weekData, forMonth }) {
   )
 }
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
   const session = await auth0.getSession(ctx.req)
   var forMonth = [];
   var dayData = [];

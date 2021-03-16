@@ -137,7 +137,7 @@ export default function Today({ user, data }) {
     )
 }
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(ctx) {
     const session = await auth0.getSession(ctx.req)
     var dayData = [];
     if (session) {
