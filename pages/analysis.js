@@ -4,6 +4,7 @@ import LineChart from '../components/lineChart';
 import baseUrl from '../utils/baseUrl';
 import auth0 from '../utils/auth0';
 import Axios from 'axios';
+import Image from 'next/image';
 import Navbar from '../components/Navbar';
 import { AllDaysCategorySort } from '../utils/helpFunc';
 import { useRouter } from 'next/router';
@@ -107,7 +108,7 @@ export default function Analysis({ user, data }) {
             alignItems="stretch"
             spacing={0}>
             <Grid item xs={12} md={6}>
-              <img src="/analysis.jpg" style={{ width: "100%", height: "100%" }} />
+              <Image src="/analysis2.jpg" width={600} height={600} alt="image" />
             </Grid>
             <Grid item xs={12} md={6}>
               <Typography variant='h4' align="center">
