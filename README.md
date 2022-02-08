@@ -1,4 +1,11 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## screenshots
+![screencapture-expense-tracker-one-xi-vercel-app-week-2021-02-23-13_40_22](https://user-images.githubusercontent.com/67192558/152919610-3cc33063-b505-42e1-a8e6-44aeb7e2fa8a.png)
+![screencapture-expense-tracker-one-xi-vercel-app-2021-02-23-13_38_51](https://user-images.githubusercontent.com/67192558/152919615-ec639f91-31ce-41cf-8a7a-24252301b77b.png)
+![screencapture-expense-tracker-one-xi-vercel-app-2021-02-23-13_39_09](https://user-images.githubusercontent.com/67192558/152919616-3c2a7aa4-852c-47a6-bf14-752ba4ad7d79.png)
+![screencapture-expense-tracker-one-xi-vercel-app-analysis-2021-02-23-13_43_52](https://user-images.githubusercontent.com/67192558/152919617-4238496f-995b-48ab-8de7-ffc2b22b0620.png)
+![screencapture-expense-tracker-one-xi-vercel-app-month-2021-02-23-13_43_15](https://user-images.githubusercontent.com/67192558/152919620-8eef52ed-1348-4480-b578-558efbf0bc27.png)
+![screencapture-expense-tracker-one-xi-vercel-app-today-2021-02-23-13_40_03](https://user-images.githubusercontent.com/67192558/152919622-04671f77-43b1-4969-88b8-df8ac6107f52.png)
 
 ## Getting Started
 
